@@ -22,7 +22,7 @@
     return n === undefined ? array[array.length - 1] : array.slice(Math.max(array.length-n, 0) );
   };
 
-/////////////////
+
   // Call iterator(value, key, collection) for each element of collection.
   // Accepts both arrays and objects.
 
@@ -138,20 +138,9 @@
   // the case where a starting value is not passed, the iterator is not invoked
   // until the second element, with the first element as its second argument.
   //  
-  // Example:
-  //   var numbers = [1,2,3];
-  //   var sum = _.reduce(numbers, function(total, number){
-  //     return total + number;
-  //   }, 0); // should be 6
-  //  
-  //   var identity = _.reduce([5], function(total, number){
-  //     return total + number * number;
-  //   }); // should be 5, regardless of the iterator function passed in
-  //          No accumulator is given so the first element is used.
+
   _.reduce = function(collection, iterator, accumulator) {
-
     var init = arguments.length === 2;
-
     _.each(collection, function(value){
       if (init){
         accumulator = value;
@@ -160,7 +149,6 @@
         accumulator = iterator(accumulator, value);
       }
     });
-
     return accumulator;
   };
 
@@ -240,7 +228,7 @@
   };
 
 
-  //**
+ //**
  //  * FUNCTIONS
  //  * =========
   // Return a function that can be called at most one time. Subsequent calls
@@ -270,7 +258,6 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
-    
     var obj = {};
     return function(){
       var input = JSON.stringify(arguments);
